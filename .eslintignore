@@ -1,0 +1,10 @@
+**/config/*
+**/dist/*
+**/doc/*
+**/eslint-cache/*
+**/node_modules/*
+**/scripts/*
+**/*.spec.ts
+**/*.mock.ts
+setupJest.ts
+.eslintrc.js

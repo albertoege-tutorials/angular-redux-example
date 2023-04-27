@@ -1,0 +1,40 @@
+{
+  "extensions.ignoreRecommendations": false,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "sonarlint.connectedMode.project": {
+    "projectKey": "com.orange.componentescomunesosp.library.typescript:wctokenvalidation"
+  },
+  "editor.formatOnSave": false,
+  "typescript.tsdk": "node_modules\\typescript\\lib",
+  "todo-tree.filtering.excludeGlobs": ["node_modules", "coverage", "dist", "auto"],
+  "todo-tree.highlights.customHighlight": {
+    "TODO": {
+      "icon": "check",
+      "type": "text",
+      "foreground": "#ffdf00",
+      "gutterIcon": true,
+      "iconColour": "#ff823f"
+    },
+    "FIXME": {
+      "type": "text",
+      "foreground": "#d20000",
+      "iconColour": "#d20000",
+      "gutterIcon": true
+    }
+  }
+}

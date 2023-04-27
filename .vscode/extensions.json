@@ -1,0 +1,16 @@
+{
+  "recommendations": [
+    "angular.ng-template",
+    "johnpapa.angular2",
+    "syler.sass-indented",
+    "dbaeumer.vscode-eslint",
+    "sonarsource.sonarlint-vscode",
+    "esbenp.prettier-vscode",
+    "EditorConfig.EditorConfig",
+    "mhutchie.git-graph",
+    "arturock.gitstash",
+    "Gruntfuggly.todo-tree",
+    "vespa-dev-works.jestRunIt",
+    "kisstkondoros.vscode-codemetrics"
+  ]
+}

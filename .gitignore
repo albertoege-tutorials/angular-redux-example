@@ -1,0 +1,65 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+/dist
+/tmp
+/out-tsc
+# Only exists if Bazel was run
+/bazel-out
+
+# dependencies
+/node_modules*
+/*node_modules*
+
+# profiling files
+chrome-profiler-events*.json
+speed-measure-plugin*.json
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# Compodoc auto-generated Angular documentation
+/doc/auto
+
+# eslint cache
+/eslint-cache
+
+# demo-angularjs
+/demo-angularjs/angularjs/app/fonts
+/demo-angularjs/angularjs/app/img
+/demo-angularjs/angularjs/app/lib
+/demo-angularjs/angularjs/app/styles
+/demo-angularjs/angularjs/app/orange-wc-bundler.js
+/demo-angularjs/angularjs/node_modules
+/demo-angularjs/angularjs/*.tgz
+/demo-angularjs/demo-angularjs-bundler
+
+
