@@ -19,12 +19,12 @@ export class LoginComponent {
   constructor(private router: Router, private store: Store<AppState>) {
     this.store
       .select((state) => state.login.credentials)
-      .subscribe((userCredentials) => (this.newUserCredential = userCredentials));
+      .subscribe((userCredentials) => (this.newUserCredential = { ...userCredentials }));
   }
 
   login() {
     if (this.newUserCredential) {
-      this.store.dispatch({ type: LoginActionTypes.Login, action: this.newUserCredential });
+      this.store.dispatch(new LoginAction(this.newUserCredential));
     }
     // TODO: this.router.navigate(['todo']);
   }
