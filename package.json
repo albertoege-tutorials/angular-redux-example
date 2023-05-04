@@ -1,6 +1,6 @@
 {
   "name": "angular-redux-example",
-  "version": "0.0.0",
+  "version": "0.8.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -16,17 +16,17 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "~12.2.0",
+    "@angular/cdk": "^12.2.13",
     "@angular/common": "~12.2.0",
     "@angular/compiler": "~12.2.0",
     "@angular/core": "~12.2.0",
     "@angular/forms": "~12.2.0",
+    "@angular/material": "^12.2.13",
     "@angular/platform-browser": "~12.2.0",
     "@angular/platform-browser-dynamic": "~12.2.0",
-    "@angular-redux/store": "^10.0.0",
-    "redux": "^4.0.0",
-    "redux-logger": "^3.0.6",
-    "redux-observable": "^1.0.0",
     "@angular/router": "~12.2.0",
+    "@ngrx/store": "12.5.1",
+    "@ngrx/store-devtools": "12.5.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
