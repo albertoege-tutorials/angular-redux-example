@@ -12,7 +12,6 @@ export const CHANGE_TODO_STATUS = 'todo:CHANGE_TODO_STATUS';
 
 export class AddTodoItemAction implements Action {
   readonly type = ADD_TODO_ITEM;
-
   constructor(public newItem: TodoItem) {}
 }
 

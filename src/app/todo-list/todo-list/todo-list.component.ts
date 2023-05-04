@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { TodoItem } from '../todo-list-state-management/models';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
@@ -10,18 +10,10 @@ import { AddTodoItemAction } from '../todo-list-state-management/actions';
   templateUrl: './todo-list.component.html',
   styleUrls: ['./todo-list.component.scss']
 })
-export class TodoListComponent implements OnInit {
+export class TodoListComponent {
   public newTodo: TodoItem = this.getEmptyTodoItem();
 
   constructor(private store: Store<AppState>) {}
-
-  public ngOnInit(): void {
-    this.store
-      .select((appState) => appState.todolist.items)
-      .subscribe((todoList) => {
-        console.log(todoList.length);
-      });
-  }
 
   public getUserName(): Observable<string> {
     return this.store.select((appState) => appState.login.credentials.username);
