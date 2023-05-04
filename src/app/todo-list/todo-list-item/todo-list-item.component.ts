@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { TodoItem } from '../todo-list-state-management/models';
-/*
-import { removeTodoItem } from "../todo-list-state-management/actions";
-import { dispatch } from "@angular-redux/store"; */
+import { AppState } from 'src/app/app-state-management/models';
+import { Store } from '@ngrx/store';
+import { RemoveTodoItemAction } from '../todo-list-state-management/actions';
 
 @Component({
   selector: 'todo-list-item',
@@ -10,12 +10,11 @@ import { dispatch } from "@angular-redux/store"; */
   styleUrls: ['./todo-list-item.component.scss']
 })
 export class TodoListItemComponent {
-  @Input() todo: TodoItem = { description: '' }; // default stte to replace
+  @Input() todo: TodoItem = { description: '' };
 
-  /*  @dispatch()
+  constructor(private store: Store<AppState>) {}
+
   removeTodo(todo: TodoItem) {
-    return removeTodoItem(todo.id);
-  } */
-
-  removeTodo(todo: TodoItem) {}
+    this.store.dispatch(new RemoveTodoItemAction(todo.id));
+  }
 }

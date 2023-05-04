@@ -1,76 +1,49 @@
-/*
-import { Action } from "redux";
-import { TodoItem, TodoStatus } from "./models";
-import todoConstants from "./constants";
+import { Action } from '@ngrx/store';
+import { TodoItem, TodoStatus } from './models';
 
-export interface AddTodoItemAction extends Action {
-    item: TodoItem;
+export enum TodoActionTypes {}
+
+export const ADD_TODO_ITEM = 'todo->ADD_TODO_ITEM';
+export const REMOVE_TODO_ITEM = 'todo->REMOVE_TODO_ITEM';
+export const GET_TODOS = 'todo:GET_TODOS';
+export const GET_TODOS_SUCCEEDED = 'todo:GET_TODOS_SUCCEEDED';
+export const GET_TODOS_FAILED = 'todo:GET_TODOS_FAILED';
+export const CHANGE_TODO_STATUS = 'todo:CHANGE_TODO_STATUS';
+
+export class AddTodoItemAction implements Action {
+  readonly type = ADD_TODO_ITEM;
+
+  constructor(public newItem: TodoItem) {}
 }
 
-export function addTodoItem(item: TodoItem): AddTodoItemAction {
-    return {
-        type: todoConstants.ADD_TODO_ITEM,
-        item
-    };
+export class RemoveTodoItemAction implements Action {
+  readonly type = REMOVE_TODO_ITEM;
+  constructor(public id: string) {}
 }
 
-export interface RemoveTodoItemAction extends Action {
-    id: string;
+export class GetTodosAction implements Action {
+  readonly type = GET_TODOS;
 }
 
-export function removeTodoItem(id: string): RemoveTodoItemAction {
-    return {
-        type: todoConstants.REMOVE_TODO_ITEM,
-        id
-    };
+export class GetTodosSucceededAction implements Action {
+  readonly type = GET_TODOS_SUCCEEDED;
+  constructor(public items: TodoItem[]) {}
 }
 
-export interface GetTodosAction extends Action {
+export class GetTodosFailedAction implements Action {
+  readonly type = GET_TODOS_FAILED;
+  constructor(public error: any) {}
 }
 
-export function getTodos(): GetTodosAction {
-    return {
-        type: todoConstants.GET_TODOS
-    };
+export class ChangeTodoStatusAction implements Action {
+  readonly type = CHANGE_TODO_STATUS;
+  constructor(public status: TodoStatus) {}
 }
 
-export interface GetTodosSucceededAction extends Action {
-    items: TodoItem[];
-}
-
-export function getTodosSucceeded(items: TodoItem[]): GetTodosSucceededAction {
-    return {
-        type: todoConstants.GET_TODOS_SUCCEEDED,
-        items
-    };
-}
-
-export interface GetTodosFailedAction extends Action {
-    error: any;
-}
-
-export function getTodosFailed(error: any): GetTodosFailedAction {
-    return {
-        type: todoConstants.GET_TODOS_FAILED,
-        error
-    };
-}
-
-export interface ChangeTodoStatusAction extends Action {
-    status: TodoStatus;
-}
-
-export function changeTodoStatus(status: TodoStatus): ChangeTodoStatusAction {
-    return {
-        type: todoConstants.CHANGE_TODO_STATUS,
-        status
-    };
-}
-
-export type TodoActions = AddTodoItemAction
-    | RemoveTodoItemAction
-    | GetTodosAction
-    | GetTodosSucceededAction
-    | GetTodosFailedAction
-    | ChangeTodoStatusAction;
- */
+export type TodoActions =
+  | AddTodoItemAction
+  | RemoveTodoItemAction
+  | GetTodosAction
+  | GetTodosSucceededAction
+  | GetTodosFailedAction
+  | ChangeTodoStatusAction;

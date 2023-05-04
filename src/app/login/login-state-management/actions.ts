@@ -1,13 +1,10 @@
 import { Action } from '@ngrx/store';
 import { UserCredentials } from './models';
 
-export enum LoginActionTypes {
-  Login = 'login->initialize'
-}
+export const LOGIN_USER_ACTION = 'login->LOGIN_USER';
 
 export class LoginAction implements Action {
-  readonly type = LoginActionTypes.Login;
-
+  readonly type = LOGIN_USER_ACTION;
   constructor(public payload: UserCredentials) {}
 }
 

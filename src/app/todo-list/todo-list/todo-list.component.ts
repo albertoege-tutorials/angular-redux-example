@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoItem } from '../todo-list-state-management/models';
-/* import { AppState } from "../../store/models";
- */ import { Observable } from 'rxjs';
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/app-state-management/models';
+import { AddTodoItemAction } from '../todo-list-state-management/actions';
 
 @Component({
   selector: 'todo-list',
@@ -10,25 +12,43 @@ import { TodoItem } from '../todo-list-state-management/models';
 })
 export class TodoListComponent implements OnInit {
   public newTodo: TodoItem = this.getEmptyTodoItem();
-  todos: TodoItem[] = [];
 
-  /*   @select((appState: AppState) => appState.todo.items)
-  todos$: Observable<TodoItem[]>;
+  constructor(private store: Store<AppState>) {}
 
-  @select((appState: AppState) => appState.login.credentials.username) */
-  public name$: Observable<string> = new Observable();
+  public ngOnInit(): void {
+    this.store
+      .select((appState) => appState.todolist.items)
+      .subscribe((todoList) => {
+        console.log(todoList.length);
+      });
+  }
 
-  ngOnInit(): void {
-    /*  this.todos$.subscribe((todos) => {
-      this.todos = todos;
-    }); */
+  public getUserName(): Observable<string> {
+    return this.store.select((appState) => appState.login.credentials.username);
+  }
+
+  public getTodos(): Observable<TodoItem[]> {
+    return this.store.select((appState) => appState.todolist.items);
+  }
+
+  public hasTodos(): Observable<boolean> {
+    return this.store.select((appState) => appState.todolist.items?.length > 0);
+  }
+
+  public getNumberOfTodos(): Observable<number> {
+    return this.store.select((appState) => appState.todolist.items?.length);
   }
 
   public addTodo() {
+    if (!this.newTodo.description || !this.hasValidDescription()) {
+      return;
+    }
+
     const newTodo = {
       ...this.newTodo
     };
 
+    this.store.dispatch(new AddTodoItemAction(newTodo));
     this.newTodo = this.getEmptyTodoItem();
   }
 
@@ -36,5 +56,9 @@ export class TodoListComponent implements OnInit {
     return {
       description: ''
     };
+  }
+
+  private hasValidDescription(): boolean {
+    return this.newTodo.description && this.newTodo.description.trim().length > 0;
   }
 }
